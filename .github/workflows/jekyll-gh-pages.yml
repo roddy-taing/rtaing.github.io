@@ -24,10 +24,13 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-22.04
+
+   runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install libmagickwand-dev
+        run: sudo apt-get install libmagickwand-dev
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
